@@ -1,0 +1,14 @@
+// 自动生成的 ESLint 配置（基于 @tyteam 团队规范）
+import tyteamConfig from '<%= eslintConfig %>';
+
+export default [
+  ...tyteamConfig,
+  // 项目自定义规则（可在此处覆盖团队配置）
+  {
+    files: ['**/*.js', '**/*.vue', '**/*.jsx'],
+    rules: {
+      // 示例：调整规则级别
+      // "no-console": "warn"
+    }
+  }
+];

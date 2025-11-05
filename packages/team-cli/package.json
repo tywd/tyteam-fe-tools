@@ -1,0 +1,28 @@
+{
+  "name": "@tyteam/ty-cli",
+  "version": "1.0.0",
+  "description": "Tyteam 项目初始化工具，自动集成团队 ESLint 规范",
+  "main": "bin/index.js",
+  "type": "module",
+  "bin": {
+    "team-cli": "./bin/index.js"
+  },
+  "keywords": ["cli", "tyteam", "eslint", "project-init"],
+  "author": "Tyteam",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.4",
+  "devDependencies": {
+    "commander": "^14.0.2",
+    "ejs": "^3.1.10",
+    "inquirer": "^12.10.0"
+  },
+  "files": [                             
+    "bin",
+    "templates",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {                           
+    "node": ">=18.0.0"
+  }
+}
