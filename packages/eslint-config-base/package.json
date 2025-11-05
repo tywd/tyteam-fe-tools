@@ -1,14 +1,14 @@
 {
   "name": "@tyteam/eslint-config-base",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Tyteam 团队通用 ESLint 基础规则（支持 ESLint 9.x+)",
+  "main": "eslint.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["eslint", "eslintconfig", "tyteam"],
+  "author": "Tyteam",
+  "license": "MIT",
   "packageManager": "pnpm@10.12.4",
   "type": "module",
   "peerDependencies": {
@@ -20,5 +20,9 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-promise": "^7.2.1"
-  }
+  },
+  "files": [
+    "eslint.config.js",
+    "README.md"
+  ]
 }

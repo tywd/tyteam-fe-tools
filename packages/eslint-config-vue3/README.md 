@@ -1,0 +1,30 @@
+# @tyteam/eslint-config-vue3
+
+Tyteam 团队专用的 Vue3 ESLint 配置，基于 [@tyteam/eslint-config-base](https://www.npmjs.com/package/@tyteam/eslint-config-base)（已发布到 npm）扩展，集成 Vue3 语法规则和团队定制规范，适配 ESLint v9 扁平配置格式。
+
+
+## 特性
+- 📦 依赖已发布的 `@tyteam/eslint-config-base` 基础规则，无需本地关联
+- 🎯 集成 `eslint-plugin-vue@10` 官方推荐规则，适配 Vue3 语法（含 `<script setup>`）
+- 🔒 内置安全规则（禁止 `v-html` 防 XSS）和代码风格约束（Props 驼峰命名、属性值双引号）
+- ✅ 支持自动修复部分格式问题（如引号、缩进）
+
+
+## 版本兼容
+| 依赖包 | 最低版本要求 |
+|--------|--------------|
+| `@tyteam/eslint-config-base` | ^1.0.0 |
+| `eslint` | ^9.0.0 |
+| `eslint-plugin-vue` | ^10.0.0 |
+| `vue-eslint-parser` | ^10.0.0 |
+| `vue` | ^3.0.0 |
+
+
+## 安装
+### 1. 安装核心依赖
+```bash
+# 使用 pnpm（推荐）
+pnpm add @tyteam/eslint-config-vue3 @tyteam/eslint-config-base vue-eslint-parser eslint -D
+
+# 使用 npm
+npm install @tyteam/eslint-config-vue3 @tyteam/eslint-config-base vue-eslint-parser eslint --save-dev

@@ -1,2 +1,5 @@
+# 项目根目录/pnpm-workspace.yaml
 packages:
-  - 'packages/*'
+  - 'packages/*' # 包含所有子包
+  - "packages/eslint-config-base"  # 明确包含 base 包
+  - "packages/eslint-config-vue3"  # 明确包含 vue3 包

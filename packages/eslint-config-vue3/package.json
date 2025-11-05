@@ -1,0 +1,26 @@
+{
+  "name": "@tyteam/eslint-config-vue3",
+  "version": "1.0.0",
+  "description": "Tyteam 团队Vue3使用的 ESLint 基础规则（支持 ESLint 9.x+)",
+  "main": "eslint.config.js",
+  "keywords": ["eslint", "eslint-config", "vue3", "tyteam"],
+  "author": "Tyteam",
+  "license": "MIT",
+  "packageManager": "pnpm@10.12.4",
+  "type": "module",
+  "peerDependencies": {
+    "@tyteam/eslint-config-base": "^1.0.0",
+    "eslint": "^9.0.0",
+    "vue-eslint-parser": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.5.1",
+    "vue-eslint-parser": "^10.2.0",
+    "@tyteam/eslint-config-base": "^1.0.0"
+  },
+  "files": [
+    "eslint.config.js",
+    "README.md"
+  ]
+}
