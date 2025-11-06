@@ -1,7 +1,7 @@
 {
   "name": "@tyteam/stylelint-config",
-  "version": "1.0.0",
-  "description": "Tyteam stylelint flat config",
+  "version": "1.0.1",
+  "description": "Tyteam stylelint flat ESM shared config",
   "type": "module",
   "main": "index.js",
   "files": [
@@ -9,16 +9,18 @@
     "README.md",
     "package.json"
   ],
-  "keywords": ["stylelint", "config", "tyteam"],
+  "keywords": [
+    "stylelint",
+    "config",
+    "flat",
+    "tyteam"
+  ],
   "author": "Tyteam",
   "license": "MIT",
   "peerDependencies": {
-    "stylelint": "^16.9.0"
+    "stylelint": "^16.0.0"
   },
   "dependencies": {
-    "stylelint-config-standard": "^36.0.0",
     "stylelint-order": "^6.0.4"
   }
 }
-
-
