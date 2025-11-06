@@ -1,0 +1,24 @@
+{
+  "name": "@tyteam/commitlint-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Tyteam 团队 Git 提交信息校验规则",
+  "keywords": [
+    "commitlint",
+    "commitlint-config",
+    "tyteam"
+  ],
+  "author": "Tyteam",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.2.2"
+  },
+  "peerDependencies": {
+    "@commitlint/cli": "^19.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ]
+}
