@@ -1,6 +1,6 @@
 {
   "name": "@tyteam/prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tyteam Prettier shared config",
   "type": "module",
   "main": "index.js",
@@ -9,15 +9,17 @@
     "README.md",
     "package.json"
   ],
-  "keywords": ["prettier", "config", "tyteam"],
+  "keywords": [
+    "prettier",
+    "config",
+    "tyteam"
+  ],
   "author": "Tyteam",
   "license": "MIT",
   "peerDependencies": {
     "prettier": "^3.3.3"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "prettier": "^3.6.2"
   }
 }
-
-
