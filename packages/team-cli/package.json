@@ -1,6 +1,6 @@
 {
   "name": "@tyteam/ty-cli",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "Tyteam 项目初始化工具，自动集成团队 ESLint 规范",
   "main": "bin/index.js",
   "type": "module",
