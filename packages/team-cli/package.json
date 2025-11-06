@@ -16,6 +16,9 @@
     "ejs": "^3.1.10",
     "inquirer": "^12.10.0"
   },
+  "dependencies": {
+    "npm-registry-client": "^8.6.0"
+  },
   "files": [                             
     "bin",
     "templates",

@@ -7,6 +7,10 @@ import ejs from 'ejs';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
+import lintCommand from './commands/lint.js';
+import checkUpdateCommand from './commands/check-update.js';
+import lintInitCommand from './commands/lint-init.js';
 
 // 解决 ES 模块中 __dirname 问题
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,6 +31,12 @@ program
             { name: 'Vue3', value: 'vue3' },
             { name: 'React', value: 'react' } // 预留 React 支持
           ]
+        },
+        {
+          type: 'confirm',
+          name: 'useCommitlint',
+          message: '是否集成提交规范（husky + @tyteam/commitlint-config）？',
+          default: true
         }
       ]);
 
@@ -75,10 +85,41 @@ program
 
       console.log('✅ 配置文件生成成功！请执行以下命令安装依赖：');
       console.log('   pnpm install');
+
+      // 可选：集成 commitlint + husky
+      if (answers.useCommitlint) {
+        try {
+          console.log('📦 正在安装提交规范依赖（commitlint + husky）...');
+          execSync('pnpm add @tyteam/commitlint-config @commitlint/cli husky -D', {
+            stdio: 'inherit'
+          });
+          await fs.writeFile(
+            path.join(process.cwd(), 'commitlint.config.js'),
+            `import tyteamConfig from "@tyteam/commitlint-config"; export default [...tyteamConfig];`
+          );
+          execSync('npx husky install', { stdio: 'inherit' });
+          execSync("npx husky add .husky/commit-msg 'npx --no -- commitlint --edit $1'", {
+            stdio: 'inherit'
+          });
+          // 确保 prepare 脚本
+          const pkgPath = path.join(process.cwd(), 'package.json');
+          const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
+          pkg.scripts = { ...pkg.scripts, prepare: 'husky install' };
+          await fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2));
+          console.log('✅ 提交规范集成完成');
+        } catch (e) {
+          console.log('❌ 提交规范集成失败：', e.message);
+        }
+      }
     } catch (err) {
       console.error('❌ 初始化失败：', err.message);
     }
   });
+
+// 注册其他子命令
+program.addCommand(lintCommand);
+program.addCommand(checkUpdateCommand);
+program.addCommand(lintInitCommand.parent ?? lintInitCommand);
 
 // 解析命令行参数
 program.parse(process.argv);

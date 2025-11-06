@@ -1,0 +1,24 @@
+{
+  "name": "@tyteam/stylelint-config",
+  "version": "1.0.0",
+  "description": "Tyteam stylelint flat config",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": ["stylelint", "config", "tyteam"],
+  "author": "Tyteam",
+  "license": "MIT",
+  "peerDependencies": {
+    "stylelint": "^16.9.0"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4"
+  }
+}
+
+
