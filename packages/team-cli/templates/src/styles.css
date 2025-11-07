@@ -1,0 +1,20 @@
+/* 示例 CSS 文件，用于测试 Stylelint 配置 */
+
+.app {
+  text-align: center;
+  margin-top: 60px;
+}
+
+h1 {
+  color: #42b983;
+}
+
+/* 这里有一些潜在的 Stylelint 错误，可以用来测试修复功能 */
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 5px;
+}

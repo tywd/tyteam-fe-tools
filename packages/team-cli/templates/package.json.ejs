@@ -1,15 +1,41 @@
 {
+    "name": "<%= projectName %>",
+    "version": "1.0.0",
+    "description": "A project using @tyteam configuration standards",
     "scripts": {
-      "lint": "eslint .",
-      "lint:fix": "eslint . --fix"
+      "lint": "eslint . && stylelint ./**/*.{css,scss,vue}",
+      "lint:fix": "team-cli lint fix",
+      "format": "prettier --write .",
+      "format:check": "prettier --check .",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "pre-commit": "lint-staged"
     },
     "devDependencies": {
       "<%= eslintConfig %>": "^1.0.0",
+      "@tyteam/stylelint-config": "^1.0.0",
+      "@tyteam/commitlint-config": "^1.0.0",
+      "@tyteam/prettier-config": "^1.0.0",
       "eslint": "^9.39.1",
+      "stylelint": "^16.9.0",
+      "prettier": "^3.3.3",
       "eslint-plugin-vue": "^10.5.1",
       "eslint-plugin-import": "^2.29.0",
       "eslint-plugin-n": "^17.0.0",
       "eslint-plugin-promise": "^6.0.0",
-      "vue-eslint-parser": "^10.2.0"
+      "vue-eslint-parser": "^10.2.0",
+      "lint-staged": "^15.2.10"
+    },
+    "lint-staged": {
+      "*.{js,jsx,ts,tsx,vue}": [
+        "eslint --fix",
+        "prettier --write"
+      ],
+      "*.{css,scss}": [
+        "stylelint --fix",
+        "prettier --write"
+      ],
+      "*.{json,md,yml,yaml}": [
+        "prettier --write"
+      ]
     }
   }

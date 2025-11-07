@@ -1,13 +1,21 @@
 {
   "name": "@tyteam/ty-cli",
-  "version": "1.4.0",
-  "description": "Tyteam 项目初始化工具，自动集成团队 ESLint 规范",
+  "version": "1.5.0",
+  "description": "Tyteam 前端脚手架工具，一键集成团队规范（ESLint/Stylelint/Prettier/Commitlint）",
   "main": "bin/index.js",
   "type": "module",
   "bin": {
     "team-cli": "./bin/index.js"
   },
-  "keywords": ["cli", "tyteam", "eslint", "project-init"],
+  "keywords": [
+    "tyteam",
+    "cli",
+    "eslint",
+    "stylelint",
+    "commitlint",
+    "prettier",
+    "scaffold"
+  ],
   "author": "Tyteam",
   "license": "MIT",
   "packageManager": "pnpm@10.12.4",
@@ -17,15 +25,16 @@
     "inquirer": "^12.10.0"
   },
   "dependencies": {
-    "npm-registry-client": "^8.6.0"
+    "npm-registry-client": "^8.6.0",
+    "husky": "^9.0.11"
   },
-  "files": [                             
+  "files": [
     "bin",
     "templates",
     "package.json",
     "README.md"
   ],
-  "engines": {                           
+  "engines": {
     "node": ">=18.0.0"
   }
 }

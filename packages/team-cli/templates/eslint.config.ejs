@@ -9,6 +9,8 @@ export default [
     rules: {
       // 示例：调整规则级别
       // "no-console": "warn"
+       // 禁用 n/no-unpublished-import 规则，避免对本地/私有包的误报
+      'n/no-unpublished-import': 'off'
     }
   }
 ];
