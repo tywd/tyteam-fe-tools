@@ -78,7 +78,9 @@ export default [
       "indent": ["error", 2],             // 2空格缩进
       "semi": ["error", "always"],        // 强制分号
       "quotes": ["error", "single"],      // 单引号
-      "import/order": ["warn", { "alphabetize": { "order": "asc" } }]  // import 排序
+      "import/order": ["warn", { "alphabetize": { "order": "asc" } }],  // import 排序
+      // 禁用 n/no-unpublished-import 规则，避免对本地/私有包的误报
+      "n/no-unpublished-import": "off"
     }
   }
 ];
