@@ -4,6 +4,7 @@ export const isQiankunEnv = window.__POWERED_BY_QIANKUN__;
 // 路由基础路径：在qiankun中时使用主应用配置的activeRule
 export const baseUrl = isQiankunEnv ? '/<%= projectName %>' : '/';
 
+// 获取所有路由
 export const getAllRoute = () => {
     const routes = [
         {
@@ -49,6 +50,7 @@ export const transformRoutes = (routes: any[]): any[] => {
     return newRoutes;
 }
 
+// 处理原始route为菜单格式
 export const transformMenu = (routes: any[]): any[] => {
     const menu: any[] = routes.map(route => {
         const transformd: any = {

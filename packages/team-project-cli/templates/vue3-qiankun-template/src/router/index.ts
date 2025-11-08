@@ -2,6 +2,8 @@ import { baseUrl, getAllRoute, transformRoutes } from '@/utils';
 import { createRouter, createWebHistory, RouteRecordRaw, Router } from 'vue-router';
 import { useTabsStore } from '../stores/tabs';
 import { useMenuStore } from '../stores/menu';
+
+// 基础路由
 const baseRoutes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -14,6 +16,8 @@ const baseRoutes: RouteRecordRaw[] = [
     meta: { title: '子应用看板' }
   }
 ];
+
+// 动态获取的其他所有路由
 const _routes: any[] = getAllRoute()
 const mainRoutes: RouteRecordRaw[] = transformRoutes(_routes);
 const routes: RouteRecordRaw[] = [...baseRoutes, ...mainRoutes];
