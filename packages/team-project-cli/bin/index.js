@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 // 声明脚本解释器(运行环境)为 node（必须放在第一行，确保全局命令可执行）
 
+// 命令行参数解析库，用于创建命令行工具和解析用户输入的参数
 import { program } from 'commander';
+// 交互式命令行界面库，用于创建用户问答式交互界面
 import inquirer from 'inquirer';
+// 嵌入式JavaScript模板引擎，用于动态生成文件内容
 import ejs from 'ejs';
+// Node.js文件系统模块的Promise版本，用于异步文件操作
 import fs from 'fs/promises';
+// 路径处理模块，用于处理和转换文件路径
 import path from 'path';
+// URL转文件路径工具函数，用于在ES模块中获取__dirname等效功能
 import { fileURLToPath } from 'url';
+// 同步执行子进程的模块，用于在Node.js中执行系统命令
 import { execSync } from 'child_process';
 import checkUpdateCommand from './commands/check-update.js';
 
@@ -37,11 +44,18 @@ program
           default: path.basename(process.cwd())
         },
         {
+          type: 'input',
+          name: 'description',
+          message: '请输入项目描述：',
+          default: 'A qiankun micro-frontend sub application'
+        },
+        {
           type: 'list',
           name: 'framework',
           message: '请选择项目框架：',
           choices: [
             { name: 'Vue 3 (Vite)', value: 'vue3' },
+            { name: 'Vue 3 (Qiankun)', value: 'vue3-qiankun' },
             { name: 'React (待支持)', value: 'react', disabled: '即将支持' },
             { name: 'Vanilla JS (待支持)', value: 'vanilla', disabled: '即将支持' }
           ]
@@ -62,7 +76,8 @@ program
       // 3. 复制模板到当前目录
       console.log(`📦 正在使用 ${answers.framework} 模板创建项目...`);
       await copyDir(templateDir, process.cwd(), { 
-        projectName: answers.projectName
+        projectName: answers.projectName,
+        projectDescription: answers.description
       });
 
       // 4. 安装依赖

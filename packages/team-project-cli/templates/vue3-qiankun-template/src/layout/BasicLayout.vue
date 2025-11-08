@@ -1,0 +1,86 @@
+<template>
+    <div class="basic-layout">
+        <div class="main-content-area">
+            <!-- 左侧侧边栏 -->
+            <Sidebar />
+            <!-- 右侧内容区域 -->
+            <main class="content-area">
+                <div class="breadcrumb-container">
+                    <el-icon class="collapse-icon" @click="toggleSidebar">
+                        <Expand v-if="menuStore.collapsed" />
+                        <Fold v-else />
+                    </el-icon>
+                    <Breadcrumb class="breadcrumb" />
+                </div>
+                <TabsView />
+            </main>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import Sidebar from './Sidebar.vue';
+import Breadcrumb from '@/components/Breadcrumb.vue';
+import TabsView from './TabsView.vue';
+import { useMenuStore } from '../stores/menu';
+import { Expand, Fold } from '@element-plus/icons-vue';
+
+const menuStore = useMenuStore();
+const toggleSidebar = () => {
+    menuStore.toggleCollapsed();
+};
+</script>
+<style scoped lang="scss">
+.basic-layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+}
+
+.main-content-area {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.content-area {
+    flex: 1;
+    background-color: #fff;
+    height: 100%;
+    overflow: auto;
+    
+    .breadcrumb-container {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px 16px;
+        border-bottom: 1px solid #f0f0f0;
+        
+        .collapse-icon {
+            margin-right: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+            
+            &:hover {
+                color: #1890ff;
+            }
+        }
+        
+        .breadcrumb {
+            flex: 1;
+        }
+    }
+}
+
+.subapp-container {
+    width: 100%;
+    height: 100%;
+
+    // 子应用样式隔离
+    :deep(*) {
+        font-family: inherit;
+    }
+}
+</style>
