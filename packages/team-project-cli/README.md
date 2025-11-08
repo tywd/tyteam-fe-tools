@@ -66,10 +66,10 @@ team-project-cli check-update
 
 有关更详细的使用说明和开发指南，请参阅以下文档：
 
-- [完整使用指南](../../docs/team-project-cli.md)
-- [分步使用指南](../../docs/team-project-cli-step-by-step.md)
-- [开发指南](../../docs/team-project-cli-development.md)
-- [模板系统](../../docs/team-project-cli-templates.md)
+- [完整使用指南](../../docs/team-project-cli/index.md)
+- [分步使用指南](../../docs/team-project-cli/step-by-step.md)
+- [开发指南](../../docs/team-project-cli/development.md)
+- [模板系统](../../docs/team-project-cli/templates.md)
 
 ## License
 
